@@ -1,0 +1,18 @@
+!!!
+%html
+  %head
+    = render'shared/meta'
+
+  %body
+    #notification
+      = alert
+      = notice
+    #nav_and_login(class='container_24')
+      #auth(class='grid_24')
+        = render 'shared/auth'
+      #footer(class='grid_24')
+        copyright © 2012 kirillivanov.ru
+        %br
+        =# controller_name 
+        =# action_name
+        =# debug params
