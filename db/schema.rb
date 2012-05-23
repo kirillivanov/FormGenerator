@@ -11,7 +11,41 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120523135417) do
+ActiveRecord::Schema.define(:version => 20120523175513) do
+
+  create_table "field_assignments", :force => true do |t|
+    t.integer  "field_id"
+    t.integer  "form_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "field_assignments", ["field_id", "form_id"], :name => "index_field_assignments_on_field_id_and_form_id", :unique => true
+  add_index "field_assignments", ["field_id"], :name => "index_field_assignments_on_field_id"
+  add_index "field_assignments", ["form_id"], :name => "index_field_assignments_on_form_id"
+
+  create_table "field_types", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "fields", :force => true do |t|
+    t.string   "type"
+    t.string   "label"
+    t.string   "values"
+    t.integer  "form_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "fields", ["form_id"], :name => "index_fields_on_form_id"
+
+  create_table "forms", :force => true do |t|
+    t.string   "resourse_name"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
