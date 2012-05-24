@@ -22,8 +22,8 @@ group :assets do
 end
 
 group :development do
-  gem 'nifty-generators'
   gem 'thin'
+  gem 'rails3-generators'
 end
 
 gem 'jquery-rails'

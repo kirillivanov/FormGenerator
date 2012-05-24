@@ -55,5 +55,13 @@ module FormGenerator
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    config.generators do |g|  
+      g.stylesheets false  
+      g.test_framework false 
+      g.fixture_replacement false
+      g.helper false
+    end  
+
   end
 end

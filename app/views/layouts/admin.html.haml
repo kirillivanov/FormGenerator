@@ -13,17 +13,10 @@
         = render 'shared/auth'
       -if user_signed_in?
         #navigation(class='grid_12')
-          %ul
-            %li 
-              =# link_to "Journal", journal_path, class: ('active' if action_name == 'journal')
-            %li 
-              =# link_to "Projects", projects_path, class: ('active' if action_name == 'index' && controller_name == 'projects' )
-            %li 
-              =# link_to "Labs/Experiments", labs_path, class: ('active' if action_name == 'index' and controller_name == 'labs')
-            %li 
-              =# link_to "Scientists", scientists_path, class: ('active' if action_name == 'scientists')
+
         #content(class='grid_24')
           = yield
+          = custom_form({object: Form, fields: [["text", "value"], ["select", "value1_|_value2_|_value3"], ["text", "value"]]})
       #footer(class='grid_24' style='color: #aaa; font-size: 12px; text-align: center;') 
         copyright © 2012 kirillivanov.ru
         %br

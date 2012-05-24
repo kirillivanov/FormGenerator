@@ -1,5 +1,14 @@
 FormGenerator::Application.routes.draw do
+
+  resources :forms
+  resources :types
   devise_for :users
+
+  get 'admin/index'
+  match 'admin', :to => 'admin#index', :as => "admin"
+
+  root :to => 'admin#index'
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -48,13 +57,7 @@ FormGenerator::Application.routes.draw do
   #     resources :products
   #   end
 
-  # You can have the root of your site routed with "root"
-  # just remember to delete public/index.html.
-  root :to => 'admin#index'
 
-
-  get 'admin/index'
-  match 'admin', :to => 'admin#index', :as => "admin"
   # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
