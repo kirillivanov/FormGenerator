@@ -24,6 +24,7 @@ group :development do
 end
 
 gem 'jquery-rails'
+gem 'simple_form'
 
 # Deploy with Capistrano
 # gem 'capistrano'

@@ -3,15 +3,30 @@
   %head
     = render'shared/meta'
   %body(class='container')
+    - if user_signed_in?   
+      .navbar.row
+        .navbar-inner
+          .container
+            = link_to "FormGenerator", root_path, class: "brand"
+            .nav-collapse
+              %ul.nav
+                %li
+                  = link_to "Forms", forms_path
+                %li
+                  = link_to "Fields", fields_path
+              %ul.nav.pull-right
+                %li
+                  = link_to("Log out", destroy_user_session_path)
     - flash.each do |name, msg|
       %div{ class: "alert alert-#{ name == :notice ? "success" : "error" }" }
+        %a(class="close" data-dismiss="alert" href="#")
+          ×
         = msg
     #nav_and_login
       #logout
         = render 'shared/auth'
       -if user_signed_in?
         #navigation
-
     #content
       = yield
       =# custom_form({object: Form, fields: [["text", "value"], ["select", "value1_|_value2_|_value3"], ["text", "value"]]})
