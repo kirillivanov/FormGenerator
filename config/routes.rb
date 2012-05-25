@@ -1,5 +1,9 @@
 FormGenerator::Application.routes.draw do
 
+  resources :fields
+
+  resources :options
+
   resources :forms
   resources :types
   devise_for :users

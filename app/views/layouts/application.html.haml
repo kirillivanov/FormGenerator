@@ -2,15 +2,19 @@
 %html
   %head
     = render'shared/meta'
-
-  %body
-    #notification
+  %body(class='container')
+    %div(class='alert alert-error')
+      %a(class="close" data-dismiss="alert" href="#")
+        x
       = alert
+    %div(class='alert alert-info')
+      %a(class="close" data-dismiss="alert" href="#")
+        x
       = notice
-    #nav_and_login(class='container_24')
-      #auth(class='grid_24')
+    #nav_and_login(class='')
+      #auth
         = render 'shared/auth'
-      #footer(class='grid_24')
+      #footer
         copyright © 2012 kirillivanov.ru
         %br
         =# controller_name 

@@ -2,22 +2,22 @@
 %html
   %head
     = render'shared/meta'
-  %body
-    #notification
-      %span
+  %body(class='container')
+    #notification(class="row")
+      %span(class="alert alert-error")
         = alert
-      %span
+      %span(class="alert alert-info")
         = notice
-    #nav_and_login(class='container_24')
+    #nav_and_login(class="row")
       #logout
         = render 'shared/auth'
       -if user_signed_in?
-        #navigation(class='grid_12')
+        #navigation
 
-        #content(class='grid_24')
+        #content
           = yield
-          = custom_form({object: Form, fields: [["text", "value"], ["select", "value1_|_value2_|_value3"], ["text", "value"]]})
-      #footer(class='grid_24' style='color: #aaa; font-size: 12px; text-align: center;') 
+          =# custom_form({object: Form, fields: [["text", "value"], ["select", "value1_|_value2_|_value3"], ["text", "value"]]})
+      #footer
         copyright © 2012 kirillivanov.ru
         %br
         =# controller_name 

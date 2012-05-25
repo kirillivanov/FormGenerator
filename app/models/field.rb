@@ -1,3 +1,6 @@
 class Field < ActiveRecord::Base
-  # attr_accessible :title, :body
+  serialize :values
+  attr_accessible :label, :variant, :values
+  has_many :field_assignments
+  has_many :fields, :through => :field_assignments
 end

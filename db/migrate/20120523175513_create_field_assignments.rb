@@ -3,6 +3,7 @@ class CreateFieldAssignments < ActiveRecord::Migration
     create_table :field_assignments do |t|
       t.integer :field_id
       t.integer :form_id
+      
       t.timestamps
     end
 
