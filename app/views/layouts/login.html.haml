@@ -4,16 +4,15 @@
     = render'shared/meta'
   %body(class='container')
     - flash.each do |name, msg|
-      %div{ class: "alert alert-#{ name == :notice ? "success" : "error" }" }
+      .row{ class: "alert alert-#{ name == :notice ? "success" : "error" }" }
         = msg
-    #nav_and_login
+    #nav_and_login.row
       #logout
         = render 'shared/auth'
       -if user_signed_in?
         #navigation
 
     #content
-      = yield
       =# custom_form({object: Form, fields: [["text", "value"], ["select", "value1_|_value2_|_value3"], ["text", "value"]]})
     #footer.row(style="text-align: center;")
       copyright © 2012 kirillivanov.ru

@@ -1,7 +1,6 @@
 class FieldsController < ApplicationController
 
   before_filter :authenticate_user!
-  layout 'admin'
 
   def index
     @fields = Field.all
@@ -12,7 +11,6 @@ class FieldsController < ApplicationController
 
   def show
     @field = Field.find(params[:id])
-
     respond_to do |format|
       format.html 
     end
@@ -20,7 +18,6 @@ class FieldsController < ApplicationController
 
   def new
     @field = Field.new
-
     respond_to do |format|
       format.html
     end
@@ -32,7 +29,6 @@ class FieldsController < ApplicationController
 
   def create
     @field = Field.new(params[:field])
-
     respond_to do |format|
       if @field.save
         format.html { redirect_to @field, notice: 'Field was successfully created.' }
@@ -44,7 +40,6 @@ class FieldsController < ApplicationController
 
   def update
     @field = Field.find(params[:id])
-
     respond_to do |format|
       if @field.update_attributes(params[:field])
         format.html { redirect_to @field, notice: 'Field was successfully updated.' }

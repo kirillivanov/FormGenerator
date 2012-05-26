@@ -1,7 +1,6 @@
 class FormsController < ApplicationController
 
   before_filter :authenticate_user!
-  layout 'admin'
 
   def index
     @forms = Form.all
