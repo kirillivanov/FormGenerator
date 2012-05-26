@@ -1,10 +1,19 @@
 jQuery ->
+
+  $( ".datepicker" ).datepicker
+    showOn: "button",
+    buttonImage: "/assets/calendar.gif",
+    buttonImageOnly: true,
+    dateFormat: "yy-mm-dd" 
+
   _columns = $('#field_column_id').html()
   _forms = $('#field_form_builder_id').html()
 
   fill_select(_columns, _forms)
   $('#field_resourse_id').change ->
     fill_select(_columns, _forms)
+
+
 
 fill_select = (a,b) -> 
   _resourse = $('#field_resourse_id :selected').text()
