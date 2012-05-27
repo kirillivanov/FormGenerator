@@ -9,7 +9,7 @@
   <dt><strong><%= model_class.human_attribute_name(:label) %>:</strong></dt>
   <dd><%= @field.label %></dd>
   <dt><strong><%= model_class.human_attribute_name(:column) %>:</strong></dt>
-  <dd><%= @field.column %></dd>
+  <dd><%= @field.column.name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:visible) %>:</strong></dt>
   <dd><%= @field.visible ? "Yes" : "No" %></dd>
 </dl>

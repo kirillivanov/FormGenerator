@@ -15,7 +15,7 @@ module ApplicationHelper
   def insert_form(name = 'Column Builder')
     _meta = get_form_meta name
     simple_form_for(resursify(_meta), :html => { :class => 'form-horizontal' }) do |form|
-      _meta.fields.each_with_index do |field, i|
+      _meta.fields.where(visible: true).each_with_index do |field, i|
         concat field_recognize(form, field)
       end
       concat form.submit
@@ -49,8 +49,6 @@ module ApplicationHelper
   def resursify(meta)
     Column.new
   end
-
-
 
 end
 

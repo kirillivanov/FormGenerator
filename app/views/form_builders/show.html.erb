@@ -9,11 +9,8 @@
 </dl>
 
 <dl class="dl-horizontal">
-  <p style="margin-left: 100px;"><strong>Fields:</strong></p>
-  <% @form_builder.fields.where(visible:true).each_with_index do |f,i| %>
-    <dt><strong><%= "#{i+1})"%></strong></dt>
-    <dd><%= "#{f.label} | column: #{f.column.name}, resourse: #{f.resourse.name} |"%></dd>
-  <% end %>
+    <dt></dt>
+    <dd><%= insert_form(@form_builder.name) %></dd>
 </dl>  
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),

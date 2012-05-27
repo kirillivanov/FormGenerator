@@ -1,6 +1,9 @@
 class FormBuildersController < ApplicationController
   # GET /form_builders
   # GET /form_builders.json
+  
+   before_filter :authenticate_user!
+
   def index
     @form_builders = FormBuilder.all
 

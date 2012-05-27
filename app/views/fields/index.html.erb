@@ -6,10 +6,11 @@
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:variant) %></th>
+      <th><%= model_class.human_attribute_name(:resourse) %></th>      
       <th><%= model_class.human_attribute_name(:label) %></th>
-      <th><%= model_class.human_attribute_name(:visible) %></th>
       <th><%= model_class.human_attribute_name(:column) %></th>
+      <th><%= model_class.human_attribute_name(:variant) %></th>
+      <th><%= model_class.human_attribute_name(:visible) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
@@ -18,10 +19,11 @@
     <% @fields.each do |field| %>
       <tr>
         <td><%= link_to field.id, field_path(field) %></td>
-        <td><%= field.variant %></td>
+        <td><%= field.resourse.name %></td>        
         <td><%= field.label %></td>
-        <td><%= field.visible ? "Yes" : "No" %></td>
-        <td><%= field.column %></td>
+        <td><%= field.column.name %></td>
+        <td><%= field.variant %></td>  
+        <td><%= field.visible ? "Yes" : "No" %></td>      
         <td><%=l field.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),

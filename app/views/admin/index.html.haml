@@ -1,0 +1,27 @@
+.alert.alert-info
+  %p
+    %strong.label.label-info 
+      About
+  %ol
+    %li
+      Resourses - same as models 
+      %strong
+        (must be in the 'app/models' folder);
+    %li
+      Columns - original fields in model; 
+    %li
+      Field - contains all meta information about column;
+    %li
+      Forms (builder) - groups of
+      %strong
+        (visible)
+      meta fields;  
+    %li
+      Call form builder method like that
+      %code
+        = "<%= insert_form 'FORM_BUILDER_NAME' %>"
+      ="."  
+
+
+
+

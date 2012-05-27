@@ -17,7 +17,7 @@
                 %li
                   = link_to "Fields", fields_path
                 %li
-                  = link_to "Form Builder", form_builders_path 
+                  = link_to "Forms", form_builders_path 
               %ul.nav.pull-right
                 %li
                   = link_to("Log out", destroy_user_session_path)
@@ -31,11 +31,11 @@
         = render 'shared/auth'
       -#if user_signed_in?
 
-    #content
-      = insert_form
+    #content.row
+      = yield if user_signed_in? 
     #footer.row(style="text-align: center;")
       copyright © 2012 kirillivanov.ru
       %br
-      = controller_name 
-      = action_name
-      = debug params
+      =# controller_name 
+      =# action_name
+      =# debug params
