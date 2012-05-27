@@ -23,6 +23,7 @@ group :development do
   gem 'rails3-generators'
 end
 
+gem "cocoon"
 gem 'jquery-rails'
 gem 'simple_form'
 

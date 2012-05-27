@@ -1,0 +1,24 @@
+<%= simple_form_for @form_builder, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :name %>
+
+  <%#= f.input :resourse_id, collection: Resourse.all.map { |r| [r.resourse_name, r.id] }, include_blank: false %>
+
+  <div id="tasks">
+    <%= f.simple_fields_for :fields do |nasted| %>
+      <%= render 'field_fields', :f => nasted %>
+    <% end %>
+  </div>
+  <div class="form-actions">
+    <%= link_to "New field", new_field_path, class: "btn" %>
+  </div> 
+  <div class="links">
+    <%#= link_to_add_association 'add task', f, :fields %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                form_builders_path, :class => 'btn' %>
+  </div>
+
+<% end %>

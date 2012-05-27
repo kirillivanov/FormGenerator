@@ -11,25 +11,29 @@
             .nav-collapse
               %ul.nav
                 %li
-                  = link_to "Forms", forms_path
+                  = link_to "Resourses", resourses_path
+                %li
+                  = link_to "Columns", columns_path
                 %li
                   = link_to "Fields", fields_path
+                %li
+                  = link_to "Form Builder", form_builders_path 
               %ul.nav.pull-right
                 %li
                   = link_to("Log out", destroy_user_session_path)
     - flash.each do |name, msg|
-      %div{ class: "alert alert-#{ name == :notice ? "success" : "error" }" }
+      %div{ class: "row alert alert-#{ name == :notice ? "success" : "error" }" }
         %a(class="close" data-dismiss="alert" href="#")
           ×
         = msg
-    #nav_and_login
+    #nav_and_login.row
       #logout
         = render 'shared/auth'
       -if user_signed_in?
         #navigation
-    #content
+    #content.row
       = yield
-      =# custom_form({object: Form, fields: [["text", "value"], ["select", "value1_|_value2_|_value3"], ["text", "value"]]})
+      =# insert_form({object: Form, fields: [["text", "value"], ["select", "value1_|_value2_|_value3"], ["text", "value"]]})
     #footer.row(style="text-align: center;")
       copyright © 2012 kirillivanov.ru
       %br

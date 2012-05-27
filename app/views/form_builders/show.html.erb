@@ -1,0 +1,28 @@
+<%- model_class = @form_builder.class -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
+  <dd><%= @form_builder.name %></dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <p style="margin-left: 100px;"><strong>Fields:</strong></p>
+  <% @form_builder.fields.where(visible:true).each_with_index do |f,i| %>
+    <dt><strong><%= "#{i+1})"%></strong></dt>
+    <dd><%= "#{f.label} | column: #{f.column.name}, resourse: #{f.resourse.name} |"%></dd>
+  <% end %>
+</dl>  
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              form_builders_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_form_builder_path(@form_builder), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              form_builder_path(@form_builder),
+              :method => 'delete',
+              :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+              :class => 'btn btn-danger' %>
+</div>

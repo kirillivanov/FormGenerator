@@ -1,8 +1,0 @@
-<%= simple_form_for @form, :html => { :class => 'form-horizontal' } do |f| %>
-  <%= f.input :resourse_name %>
-  <div class="form-actions">
-    <%= f.submit nil, :class => 'btn btn-primary' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                forms_path, :class => 'btn' %>
-  </div>
-<% end %>

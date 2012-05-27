@@ -1,5 +1,11 @@
 FormGenerator::Application.routes.draw do
 
+  resources :resourses
+
+  resources :form_builders
+
+  resources :columns
+
   resources :fields
 
   resources :options

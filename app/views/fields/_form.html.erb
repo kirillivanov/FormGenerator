@@ -1,9 +1,10 @@
 <%= simple_form_for @field, :html => { :class => 'form-horizontal' } do |f| %>
-
-    <%= f.input :variant %>
+    
+    <%= f.input :variant, collection: ['text_field', 'number_field', 'date_field'] %>
     <%= f.input :label %>
-    <%= f.input :values %>
-
+    <%= f.input :resourse_id, collection: Resourse.all %>
+    <%= f.input :column_id, collection: Column.all %>
+    <%= f.input :form_builder_id, collection: FormBuilder.all %>
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
