@@ -15,4 +15,13 @@
 //= require jquery-ui
 //= require twitter/bootstrap
 //= require cocoon
-//= require_tree .
+//= require fields
+//  require_tree .
+
+$(document).ready(function() { 
+  $( ".datepicker" ).datepicker({
+    showOn: "button",
+    buttonImage: "/assets/calendar.gif",
+    buttonImageOnly: true
+  });
+});

@@ -19,9 +19,9 @@
     <% @fields.each do |field| %>
       <tr>
         <td><%= link_to field.id, field_path(field) %></td>
-        <td><%= field.resourse.name %></td>        
+        <td><%= field.resourse.name if field.resourse %></td>        
         <td><%= field.label %></td>
-        <td><%= field.column.name %></td>
+        <td><%= field.column.name if field.column %></td>
         <td><%= field.variant %></td>  
         <td><%= field.visible ? "Yes" : "No" %></td>      
         <td><%=l field.created_at %></td>

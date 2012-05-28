@@ -20,6 +20,7 @@ class FieldsController < ApplicationController
     @field = Field.new
     respond_to do |format|
       format.html
+      format.js { @option_link = true }
     end
   end
 

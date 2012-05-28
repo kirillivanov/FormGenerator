@@ -1,10 +1,20 @@
 <%= simple_form_for @field, :html => { :class => 'form-horizontal' } do |f| %>
     
-    <%= f.input :variant, collection: ['text_field', 'number_field', 'date_field'] %>
+    <%= f.input :variant, collection: ['text_field', 'number_field', 'date_field', 'select_field'], include_blank: false %>
     <%= f.input :label %>
-    <%= f.input :resourse_id, collection: Resourse.all %>
-    <%= f.input :column_id, collection: Column.all %>
-    <%= f.input :form_builder_id, collection: FormBuilder.all %>
+    <%= f.input :resourse_id, collection: Resourse.all, include_blank: false %>
+    <%= f.input :column_id, collection: Resourse.all, include_blank: false,  :as => :grouped_select, :group_method => :columns %>
+    <%= f.input :form_builder_id, collection: Resourse.all, include_blank: false, :as => :grouped_select, :group_method => :form_builders %>
+    <div id="tasks">
+      <%= f.simple_fields_for :options do |nasted| %>
+        <%= render 'option_fields', :f => nasted %>
+      <% end %>
+    </div>
+    <div class="form-actions links">
+      <%= link_to_add_association('add option', f, :options, class: "btn") %>
+      <%#= link_to "New option", new_option_path, class: "btn" %>
+    </div> 
+
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),

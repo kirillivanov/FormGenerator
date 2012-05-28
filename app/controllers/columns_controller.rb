@@ -1,7 +1,7 @@
 class ColumnsController < ApplicationController
 
   before_filter :authenticate_user!
-
+  include ApplicationHelper
   def index
     @columns = Column.all
     respond_to do |format|
@@ -18,9 +18,17 @@ class ColumnsController < ApplicationController
 
   def new
     @column = Column.new
+
     respond_to do |format|
-      format.html 
+      format.html { @columns_names = get_columns(resursify(Resourse.first.name)) }
+      format.js {
+        _resourse_name = params[:resourse]
+        @selected = params[:selected]
+        @columns_names = get_columns(resursify(_resourse_name)) 
+        logger.info params
+      }
     end
+
   end
 
   def edit

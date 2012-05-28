@@ -1,7 +1,7 @@
 .alert.alert-info
   %p
     %strong.label.label-info 
-      About
+      Info
   %ol
     %li
       Resourses - same as models 
@@ -10,16 +10,22 @@
     %li
       Columns - original fields in model; 
     %li
-      Field - contains all meta information about column;
+      Fields - contains all meta information about column;
     %li
-      Forms (builder) - groups of
+      Forms - groups of
       %strong
         (visible)
       meta fields;  
     %li
       Call form builder method like that
       %code
-        = "<%= insert_form 'FORM_BUILDER_NAME' %>"
+        %span.kwd(style="color: navy;")
+          = "<%="
+        %span.kwd(style="color: #0086B3;")
+          insert_form
+        = "'FORM_BUILDER_NAME'" 
+        %span.kwd(style="color: navy;")
+          = "%>"
       ="."  
 
 

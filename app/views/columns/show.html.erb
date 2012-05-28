@@ -6,8 +6,8 @@
 <dl class="dl-horizontal">
   <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
   <dd><%= @column.name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:resourse_id) %>:</strong></dt>
-  <dd><%= @column.resourse.name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:resourse) %>:</strong></dt>
+  <dd><%= @column.resourse ? @column.resourse.name : "-" %></dd>
 </dl>
 
 <div class="form-actions">

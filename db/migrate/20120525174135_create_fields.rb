@@ -4,7 +4,7 @@ class CreateFields < ActiveRecord::Migration
     create_table :fields do |t|
       t.string  :label
       t.string  :variant
-      t.boolean :visible
+      t.boolean :visible, default: true
       t.integer :resourse_id
       t.integer :column_id
       t.integer :form_builder_id

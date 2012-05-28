@@ -14,11 +14,11 @@ module ApplicationHelper
 
   def insert_form(name = 'Column Builder')
     _meta = get_form_meta name
-    simple_form_for(resursify(_meta), :html => { :class => 'form-horizontal' }) do |form|
-      _meta.fields.where(visible: true).each_with_index do |field, i|
+    simple_form_for( resursify(_meta.resourse.name).new, :html => { :class => 'form-horizontal span6' }) do |form|
+      _meta.fields.visible.each_with_index do |field, i|
         concat field_recognize(form, field)
       end
-      concat form.submit
+      concat content_tag(:div, form.button(:submit, :class => 'btn btn-primary'), :class => "form-actions")
     end
   end
 
@@ -29,7 +29,11 @@ module ApplicationHelper
   end
 
   def get_columns(resource)
-    resource.column_names-['id']
+    resource.column_names-['id', 'created_at', 'updated_at']
+  end
+
+  def resursify(name)
+    name.classify.constantize
   end
 
   private 
@@ -40,15 +44,14 @@ module ApplicationHelper
 
   def field_recognize(f, field)
     if field.variant == 'text_field'
-      f.input field.column.name, label: field.label
+      f.input field.column.name, label: field.label, :input_html => { :value => "#{ field.options.first.value unless field.options.empty? }"}
     elsif field.variant == 'date_field'
-      f.input field.column.name, :as => :string, :input_html =>{:class => "datepicker"}
+      f.input field.column.name, :as => :string, :input_html => { :value => "#{ field.options.first.value unless field.options.empty? }", :class => "datepicker" }
+    elsif field.variant == 'select_field'
+      f.input field.column.name, collection: field.options.map { |o| o.value if o.value }, include_blank: false
+    elsif field.variant == 'number_field' 
+      f.input field.column.name, :as => :integer, :input_html =>{ :value => "#{ field.options.first.value unless field.options.empty? }"}  
     end
   end
-
-  def resursify(meta)
-    Column.new
-  end
-
 end
 

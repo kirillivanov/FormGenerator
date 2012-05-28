@@ -17,7 +17,7 @@
       <tr>
         <td><%= link_to column.id, column_path(column) %></td>
         <td><%= column.name %></td>
-        <td><%= column.resourse.name %></td>
+        <td><%= column.resourse ? column.resourse.name : "-" %></td>
         <td><%=l column.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),

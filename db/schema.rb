@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120527162611) do
+ActiveRecord::Schema.define(:version => 20120528141720) do
 
   create_table "columns", :force => true do |t|
     t.string   "name"
@@ -23,29 +23,41 @@ ActiveRecord::Schema.define(:version => 20120527162611) do
   create_table "fields", :force => true do |t|
     t.string   "label"
     t.string   "variant"
-    t.boolean  "visible"
+    t.boolean  "visible",         :default => true
     t.integer  "resourse_id"
     t.integer  "column_id"
     t.integer  "form_builder_id"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
   end
 
   create_table "form_builders", :force => true do |t|
     t.string   "name"
-    t.integer  "form_id"
+    t.integer  "resourse_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "options", :force => true do |t|
+    t.string   "name"
+    t.string   "value"
+    t.integer  "field_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
-  create_table "forms", :force => true do |t|
-    t.string   "resourse_name"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
-  end
-
   create_table "resourses", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "test_models", :force => true do |t|
+    t.string   "name"
+    t.integer  "age"
+    t.date     "birthday"
+    t.string   "city"
+    t.string   "country"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
