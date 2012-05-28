@@ -1,0 +1,29 @@
+.alert.alert-info
+  %p
+    %strong.label.label-info 
+      Info
+  %ol
+    %li
+      Resourses - same as models 
+      %strong
+        (must be in the 'app/models' folder);
+    %li
+      Columns - original fields in model; 
+    %li
+      Fields - contains all meta information about column;
+    %li
+      Forms - groups of
+      %strong
+        (visible)
+      meta fields;  
+    %li
+      Call form builder method like that
+      %code
+        %span.kwd(style="color: navy;")
+          = "<%="
+        %span.kwd(style="color: #0086B3;")
+          insert_form
+        = "'FORM_BUILDER_NAME'" 
+        %span.kwd(style="color: navy;")
+          = "%>"
+      ="."  

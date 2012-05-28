@@ -14,7 +14,7 @@ module ApplicationHelper
 
   def insert_form(name = 'Column Builder')
     _meta = get_form_meta name
-    simple_form_for( resursify(_meta.resourse.name).new, :html => { :class => 'form-horizontal span6' }) do |form|
+    simple_form_for( resursify(_meta.resourse.name).new, :html => { :class => 'form-horizontal span7' }) do |form|
       _meta.fields.visible.each_with_index do |field, i|
         concat field_recognize(form, field)
       end

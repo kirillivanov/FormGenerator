@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   private
   def choose_layout    
-    (['registrations', 'sessions', 'navigation', 'admin'].include? controller_name and ['new', 'create', 'auth', 'index'].include? action_name) ? 'login' : 'application'
+    (['registrations', 'sessions', 'navigation', 'admin'].include? controller_name and ['new', 'create', 'auth', 'index', 'admin'].include? action_name) ? 'login' : 'application'
   end
 
 end

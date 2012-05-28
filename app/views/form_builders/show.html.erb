@@ -1,17 +1,23 @@
+<div class="alert alert-info">
+  <strong class="label label-info">Info</strong>
+  <p></p>
+  <p>Press 'Edit' to manage fields visibility.</p>
+</div>
+
 <%- model_class = @form_builder.class -%>
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human %></h1>
 </div>
-
-<dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
+<%= render 'code', name: @form_builder.name %>
+<dl class="dl-horizontal" style="margin: 40px 0 0 200px;">
+  <dt><strong>Preview:</strong></dt>
   <dd><%= @form_builder.name %></dd>
 </dl>
 
 <dl class="dl-horizontal">
-    <dt></dt>
     <dd><%= insert_form(@form_builder.name) %></dd>
 </dl>  
+
 <div class="form-actions span12">
   <%= link_to t('.back', :default => t("helpers.links.back")),
               form_builders_path, :class => 'btn'  %>

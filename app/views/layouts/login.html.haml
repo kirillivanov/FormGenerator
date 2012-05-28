@@ -28,11 +28,9 @@
         = msg
     #nav_and_login.row
       #logout
-        = render 'shared/auth'
-      -#if user_signed_in?
-
+        = render 'shared/auth' if controller_name == 'admin' and action_name == 'index'
     #content.row
-      = yield if user_signed_in? 
+      = yield #if user_signed_in? 
     #footer.row(style="text-align: center;")
       copyright © 2012 kirillivanov.ru
       %br
