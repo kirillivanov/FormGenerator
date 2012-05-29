@@ -8,7 +8,7 @@
       %strong
         (must be in the 'app/models' folder);
     %li
-      Columns - original fields in model; 
+      Columns - fields in model; 
     %li
       Fields - contains all meta information about column;
     %li
@@ -27,3 +27,22 @@
         %span.kwd(style="color: navy;")
           = "%>"
       ="."  
+  %p
+    %strong
+      Steps   
+  %ol
+    %li
+      %span.badge.badge-success
+        = link_to "Create resourse", new_resourse_path, style: "color: white;"
+    %li
+      %span.badge.badge-warning
+        = link_to "Add columns for resourse", new_column_path, style: "color: white;"
+    %li
+      %span.badge.badge-info
+        = link_to "Create meta form for resourse", new_form_builder_path, style: "color: white;"        
+    %li
+      %span.badge
+        = link_to "Add meta fields", new_field_path, style: "color: white;"        
+    %li
+      %span.badge.badge-info
+        = link_to "Get form code", form_builders_path, style: "color: white;" 

@@ -57,7 +57,6 @@ ActiveRecord::Schema.define(:version => 20120528141720) do
     t.integer  "age"
     t.date     "birthday"
     t.string   "city"
-    t.string   "country"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

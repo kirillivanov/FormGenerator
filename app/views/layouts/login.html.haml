@@ -3,24 +3,7 @@
   %head
     = render'shared/meta'
   %body(class='container')  
-    .navbar.row
-      .navbar-inner
-        .container
-          = link_to "FormGenerator", root_path, class: "brand"
-          - if user_signed_in? 
-            .nav-collapse
-              %ul.nav
-                %li
-                  = link_to "Resourses", resourses_path
-                %li
-                  = link_to "Columns", columns_path
-                %li
-                  = link_to "Fields", fields_path
-                %li
-                  = link_to "Forms", form_builders_path 
-              %ul.nav.pull-right
-                %li
-                  = link_to("Log out", destroy_user_session_path)
+    = render 'shared/nav'
     - flash.each do |name, msg|
       .row{ class: "alert alert-#{ name == :notice ? "success" : "error" }" }
         %a(class="close" data-dismiss="alert" href="#")
@@ -30,10 +13,7 @@
       #logout
         = render 'shared/auth' if controller_name == 'admin' and action_name == 'index'
     #content.row
-      = yield #if user_signed_in? 
+      = yield 
     #footer.row(style="text-align: center;")
       copyright © 2012 kirillivanov.ru
       %br
-      =# controller_name 
-      =# action_name
-      =# debug params

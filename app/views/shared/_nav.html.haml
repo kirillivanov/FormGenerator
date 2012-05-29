@@ -1,0 +1,30 @@
+.navbar.row
+  .navbar-inner
+    .container
+      = link_to "FormGenerator", root_path, class: "brand"
+      - if user_signed_in?  
+        .nav-collapse
+          %ul.nav
+            %li
+              %a{ href: resourses_path }
+                %span.badge.badge-success 
+                  1 step
+                = " Resourses" 
+            %li
+              %a{ href: columns_path }
+                %span.badge.badge-warning
+                  2 step
+                Columns
+            %li
+              %a{ href: fields_path }
+                %span.badge
+                  4 step
+                Fields
+            %li
+              %a{ href: form_builders_path }
+                %span.badge.badge-info
+                  3,5 steps
+                Forms
+          %ul.nav.pull-right
+            %li
+              = link_to("Log out", destroy_user_session_path)

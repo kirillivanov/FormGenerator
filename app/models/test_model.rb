@@ -1,3 +1,3 @@
 class TestModel < ActiveRecord::Base
-  attr_accessible :age, :birthday, :city, :country, :name
+  attr_accessible :age, :birthday, :city, :name
 end

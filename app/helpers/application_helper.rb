@@ -12,7 +12,7 @@ module ApplicationHelper
     @devise_mapping ||= Devise.mappings[:user]
   end
 
-  def insert_form(name = 'Column Builder')
+  def insert_form(name)
     _meta = get_form_meta name
     simple_form_for( resursify(_meta.resourse.name).new, :html => { :class => 'form-horizontal span7' }) do |form|
       _meta.fields.visible.each_with_index do |field, i|
@@ -25,7 +25,7 @@ module ApplicationHelper
   def get_list_of_models
     Dir[Rails.root.to_s + '/app/models/**/*.rb'].each { |file| require file }
     models = ActiveRecord::Base.subclasses.collect { |type| type.name }.sort
-    models-["User"]
+    models-["User", "Resourse", "Column", "Field", "Option", "FormBuilder"]
   end
 
   def get_columns(resource)
@@ -44,11 +44,11 @@ module ApplicationHelper
 
   def field_recognize(f, field)
     if field.variant == 'text_field'
-      f.input field.column.name, label: field.label, :input_html => { :value => "#{ field.options.first.value unless field.options.empty? }"}
+      f.input field.column.name, label: field.label, :as => :string, :input_html => { :value => "#{ field.options.first.value unless field.options.empty? }"}
     elsif field.variant == 'date_field'
       f.input field.column.name, :as => :string, :input_html => { :value => "#{ field.options.first.value unless field.options.empty? }", :class => "datepicker" }
     elsif field.variant == 'select_field'
-      f.input field.column.name, collection: field.options.map { |o| o.value if o.value }, include_blank: false
+      f.input field.column.name, :as => :select, collection: field.options.map { |o| o.value if o.value }, include_blank: false
     elsif field.variant == 'number_field' 
       f.input field.column.name, :as => :integer, :input_html =>{ :value => "#{ field.options.first.value unless field.options.empty? }"}  
     end

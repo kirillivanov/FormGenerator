@@ -7,7 +7,7 @@ class Field < ActiveRecord::Base
   belongs_to :column
   belongs_to :form_builder
   validates_presence_of :variant, :resourse_id, :column_id, :form_builder_id
-
+  validates_uniqueness_of :column_id, :scope => :resourse_id
   accepts_nested_attributes_for :options, :reject_if => :all_blank, allow_destroy: true
 
   def self.visible

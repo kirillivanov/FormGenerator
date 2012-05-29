@@ -22,6 +22,7 @@ $(document).ready(function() {
   $( ".datepicker" ).datepicker({
     showOn: "button",
     buttonImage: "/assets/calendar.gif",
-    buttonImageOnly: true
+    buttonImageOnly: true,
+     dateFormat: "yy-mm-dd" 
   });
 });

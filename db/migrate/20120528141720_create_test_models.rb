@@ -5,8 +5,6 @@ class CreateTestModels < ActiveRecord::Migration
       t.integer :age
       t.date :birthday
       t.string :city
-      t.string :country
-
       t.timestamps
     end
   end
