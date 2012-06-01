@@ -8,16 +8,17 @@
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human %></h1>
 </div>
-<%= render 'code', name: @form_builder.name %>
-<dl class="dl-horizontal" style="margin: 40px 0 0 200px;">
-  <dt><strong>Preview:</strong></dt>
-  <dd><%= @form_builder.name %></dd>
-</dl>
+<% if @form_builder.resourse.present? and @form_builder.name.present?  %>
+  <%= render 'code', name: @form_builder.name  %>
+  <dl class="dl-horizontal" style="margin: 40px 0 0 200px;">
+    <dt><strong>Preview:</strong></dt>
+    <dd><%= @form_builder.name %></dd>
+  </dl>
 
-<dl class="dl-horizontal">
+  <dl class="dl-horizontal">
     <dd><%= insert_form(@form_builder.name) %></dd>
-</dl>  
-
+  </dl>  
+<% end %>
 <div class="form-actions span12">
   <%= link_to t('.back', :default => t("helpers.links.back")),
               form_builders_path, :class => 'btn'  %>

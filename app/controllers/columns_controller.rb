@@ -20,7 +20,7 @@ class ColumnsController < ApplicationController
     @column = Column.new
 
     respond_to do |format|
-      format.html { @columns_names = get_columns(resursify(Resourse.first.name)) }
+      format.html { @columns_names = get_columns(resursify(Resourse.first.name)) if Resourse.first }
       format.js {
         _resourse_name = params[:resourse]
         @selected = params[:selected]
