@@ -21,7 +21,14 @@ group :development do
   gem 'rails3-generators'
 end
 
-gem "cocoon"
+gem 'rspec-rails', :group => [:test, :development]
+group :test do
+  gem 'factory_girl_rails'
+  gem 'capybara'
+  gem 'guard-rspec'
+end
+
+gem 'cocoon'
 gem 'jquery-rails'
 gem 'simple_form'
 
