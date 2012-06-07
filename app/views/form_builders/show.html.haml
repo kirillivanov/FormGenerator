@@ -2,16 +2,22 @@
 .page-header
   %h1=t '.title', :default => model_class.model_name.human
 
-%p
-  %strong= model_class.human_attribute_name(:name) + ':'
-  %br
-  = @form_builder.name
-%p
-  %strong= model_class.human_attribute_name(:resourse_id) + ':'
-  %br
-  = @form_builder.resourse.name
+- if @form_builder.resourse.present? and @form_builder.name.present?
+  
+  = render 'code', name: @form_builder.name 
 
-.form-actions
+  %dl.dl-horizontal(style="margin: 40px 0 0 200px;")
+    %dt
+      %strong
+        Preview:
+    %dd
+      = @form_builder.name
+
+  %dl.dl-horizontal
+    %dd
+      = insert_form(@form_builder.name)
+
+.form-actions.span12
   = link_to t('.back', :default => t("helpers.links.back")), form_builders_path, :class => 'btn'
   = link_to t('.edit', :default => t("helpers.links.edit")), edit_form_builder_path(@form_builder), :class => 'btn'
   = link_to t('.destroy', :default => t("helpers.links.destroy")), form_builder_path(@form_builder), :method => "delete", :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')), :class => 'btn btn-danger'

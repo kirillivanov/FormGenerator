@@ -14,7 +14,7 @@
       %tr
         %td= form_builder.id
         %td= link_to  form_builder.name, form_builder_path(form_builder)
-        %td= form_builder.resourse_id
+        %td= form_builder.resourse.name
         %td=l form_builder.created_at
         %td
           = link_to t('.edit', :default => t("helpers.links.edit")), edit_form_builder_path(form_builder), :class => 'btn btn-mini'
