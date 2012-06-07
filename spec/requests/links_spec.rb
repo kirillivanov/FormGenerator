@@ -1,6 +1,5 @@
 require 'spec_helper'
-# TODO:
-# add Field test
+
 describe "LinksSpec" do
   it "shows page content" do
     login
