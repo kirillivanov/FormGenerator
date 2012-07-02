@@ -2,7 +2,9 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.3'
 
-gem 'mysql2'
+gem 'mysql2' :group: [:development]
+gem 'pg' :group: [:production]
+
 gem 'haml'
 gem 'devise'
 
@@ -21,7 +23,7 @@ group :development do
   gem 'rails3-generators'
 end
 
-gem 'rspec-rails', :group => [:test, :development]
+gem 'rspec-rails', :group: [:test, :development]
 group :test do
   gem 'factory_girl_rails'
   gem 'capybara'
