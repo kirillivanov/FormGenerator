@@ -2,8 +2,9 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.3'
 
-gem 'mysql2' :group: [:development]
-gem 'pg' :group: [:production]
+group :production do
+  gem 'pg'
+end
 
 gem 'haml'
 gem "haml-rails"
@@ -22,9 +23,10 @@ end
 group :development do
   gem 'thin'
   gem 'rails3-generators'
+  gem 'mysql2'
 end
 
-gem 'rspec-rails', :group: [:test, :development]
+gem 'rspec-rails', :group => [:test, :development]
 group :test do
   gem 'factory_girl_rails'
   gem 'capybara'
