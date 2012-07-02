@@ -13,8 +13,6 @@ jQuery ->
   $('#field_resourse_id').change ->
     fill_select(_columns, _forms)
 
-
-
 fill_select = (a,b) -> 
   _resourse = $('#field_resourse_id :selected').text()
 

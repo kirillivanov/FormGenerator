@@ -4,6 +4,7 @@ class TestModelsController < ApplicationController
 
   def index
     @test_models = TestModel.all
+    
     respond_to do |format|
       format.html
     end
@@ -11,6 +12,7 @@ class TestModelsController < ApplicationController
 
   def show
     @test_model = TestModel.find(params[:id])
+
     respond_to do |format|
       format.html
     end

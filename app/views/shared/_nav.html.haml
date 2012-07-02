@@ -1,8 +1,12 @@
 .navbar.row
   .navbar-inner
     .container
-      = link_to "FormGenerator", root_path, class: "brand"
-      - if user_signed_in?  
+      %a.btn.btn-navbar(data-toggle="collapse" data-target=".nav-collapse")
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      = link_to "FormGenerator Demo", root_path, class: "brand"
+      - if user_signed_in?
         .nav-collapse
           %ul.nav
             %li

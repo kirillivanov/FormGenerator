@@ -1,0 +1,17 @@
+= simple_form_for @form_builder, :html => { :class => 'form-horizontal' } do |f|
+  = f.input :name
+  = f.input :resourse_id, collection: Resourse.all
+
+  .tasks
+    = f.simple_fields_for :fields do |nasted|
+      = render 'field_fields', :f => nasted
+
+  .form-actions
+    = link_to "New field", new_field_path, class: "btn" if action_name == "edit"
+
+  .links
+    =#link_to_add_association 'add task', f, :fields 
+
+  .form-actions
+    = f.button :submit, :class => 'btn-primary'
+    = link_to t('.cancel', :default => t("helpers.links.cancel")), form_builders_path, :class => 'btn'

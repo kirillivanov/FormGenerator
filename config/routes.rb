@@ -1,4 +1,5 @@
 FormGenerator::Application.routes.draw do
+
   resources :test_models
   resources :resourses
   resources :form_builders

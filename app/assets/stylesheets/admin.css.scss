@@ -4,4 +4,10 @@
 //= require jquery.ui.datepicker
 
 div.page-header { margin: 28px 0; }
-span.badge { padding: 0px 9px 0px; margin: 0 3px 0 0; }
+span.badge { 
+  padding: 0px 9px 0px; 
+  margin: 0 3px 0 0;
+  a {
+    color: white;
+  }            
+}

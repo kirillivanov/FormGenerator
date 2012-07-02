@@ -6,6 +6,7 @@ gem 'mysql2' :group: [:development]
 gem 'pg' :group: [:production]
 
 gem 'haml'
+gem "haml-rails"
 gem 'devise'
 
 group :assets do
